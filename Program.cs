@@ -1,12 +1,14 @@
 ﻿using System;
-
+using Bogus;
+using Spectre.Console;
 using FluentValidation;
 
 public class Program
 {
     public static void Main()
     {
-        Console.WriteLine("Hello Fluent Validation");
+        //Console.WriteLine("Hello Fluent Validation");
+        AnsiConsole.Write(new FigletText("Fluent Validation Service").Centered().Color(Color.FromInt32(new Faker().Random.Int(1, 255))));
         var person = new Person { Name = "John", Email = "john@example.com", Age = 125 };
         var validator = new PersonValidator();
         var result = validator.Validate(person);
